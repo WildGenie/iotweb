@@ -87,12 +87,9 @@ def checkFile(arg, dirname, names):
       arg.append((dirname, verfile))
 
 if __name__ == "__main__":
-  # Figure out what to bump
-  bumpMinor = False
-  if (len(argv) == 2) and (argv[1] == "minor"):
-    bumpMinor = True
+  bumpMinor = (len(argv) == 2) and (argv[1] == "minor")
   # Find the files we need to change
-  files = list()
+  files = []
   walk(".", checkFile, files)
   for path, name in files:
     fullname = join(path, name)
